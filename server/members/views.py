@@ -1,5 +1,5 @@
 from django.shortcuts import render, loader
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .forms import ImageForm
 import tensorflow as tf
@@ -10,8 +10,9 @@ IMAGE_SIZE = 256
 
 def api(request):
     if request.method == "GET":
-        form = ImageForm()
-        return render(request, "index.html", {"form": form})
+        # form = ImageForm()
+        # return render(request, "index.html", {"form": form})
+        return HttpResponse("Hello World")
 
 @csrf_exempt
 def predict(request):
